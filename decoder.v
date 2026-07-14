@@ -1,4 +1,13 @@
-module pga_gain_decoder (
+//========================================================================
+// decoder
+//========================================================================
+
+`ifndef DECODER_V
+`define DECODER_V
+
+`include "monitor_misc.v"
+
+module decoder (
     input  wire       en,
     input  wire [1:0] gain_sel,
     output wire       s1_n,
@@ -21,13 +30,4 @@ module pga_gain_decoder (
 
 endmodule
 
-module tgate_driver (
-    input  wire sN_n,
-    output wire nmos_gate,
-    output wire pmos_gate
-);
-
-    assign nmos_gate = sN_n;
-    assign pmos_gate = ~sN_n;
-
-endmodule
+`endif /* DECODER_V */
