@@ -1,5 +1,5 @@
 ## About
-IC monitors a water-quality sensor and generates an alert when the measured conductivity moves outside a desired range. The purpose is to provide a simple, low-power interface between a conductivity sensor and a digital monitoring system.
+This IC is a mixed-signal project for experimenting with conductivity-sensor interfacing and water-quality monitoring. It takes the sensor signal, amplifies and conditions it with a programmable gain stage, compares it against programmable high and low thresholds, and generates a digital alert when the conductivity falls outside the desired range. The project serves as a test vehicle for exploring mixed-signal integration techniques that can be applied to a wide range of sensing applications.
 
 ## Architecture 
 
