@@ -20,7 +20,7 @@
 # This script is in the public domain
 #--------------------------------------------------------------------------
 
-# Edited July 16 to account for any voltage for VDD, not just 3.0V
+# @rcyaon: Edited July 16 to account for any voltage for VDD, not just 3.0V
 
 import re
 import sys
