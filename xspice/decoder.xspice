@@ -1,0 +1,34 @@
+* XSpice netlist created from SPICE and liberty sources by spi2xspice.py
+*SPICE netlist created from verilog structural netlist module decoder by vlog2Spice (qflow)
+.subckt decoder a_VDD a_VSS a_en a_gain_sel_0_ a_gain_sel_1_ a_s1_n a_s2_n a_s3_n a_s4_n
+
+.model todig_3v3 adc_bridge(in_high=2.1999999999999997 in_low=1.0999999999999999 rise_delay=10n fall_delay=10n)
+.model toana_3v3 dac_bridge(out_high=3.3 out_low=0)
+
+.model ddflop d_dff(ic=0 rise_delay=1n fall_delay=1n)
+.model dlatch d_dlatch(ic=0 rise_delay=1n fall_delay=1n)
+.model dzero d_pulldown(load=1p)
+.model done d_pullup(load=1p)
+
+AA2D1 [a_VDD] [VDD] todig_3v3
+AA2D2 [a_VSS] [VSS] todig_3v3
+AA2D3 [a_en] [en] todig_3v3
+AA2D4 [a_gain_sel_0_] [gain_sel_0_] todig_3v3
+AA2D5 [a_gain_sel_1_] [gain_sel_1_] todig_3v3
+AA2D6 [a_s1_n] [s1_n] todig_3v3
+AA2D7 [a_s2_n] [s2_n] todig_3v3
+AA2D8 [a_s3_n] [s3_n] todig_3v3
+AA2D9 [a_s4_n] [s4_n] todig_3v3
+
+.ends
+
+* gf180mcu_fd_sc_mcu7t5v0__clkinv_1 (!I)
+.model d_lut_gf180mcu_fd_sc_mcu7t5v0__clkinv_1 d_lut (rise_delay=1n fall_delay=1n input_load=1p
++ table_values "10")
+* gf180mcu_fd_sc_mcu7t5v0__nor3_1 ((!A1)&(!A2)&(!A3))
+.model d_lut_gf180mcu_fd_sc_mcu7t5v0__nor3_1 d_lut (rise_delay=1n fall_delay=1n input_load=1p
++ table_values "10000000")
+* gf180mcu_fd_sc_mcu7t5v0__and3_1 (A1&A2&A3)
+.model d_lut_gf180mcu_fd_sc_mcu7t5v0__and3_1 d_lut (rise_delay=1n fall_delay=1n input_load=1p
++ table_values "00000001")
+.end

@@ -5,8 +5,6 @@
 `ifndef DECODER_V
 `define DECODER_V
 
-`include "monitor_misc.v"
-
 module decoder (
     input  wire       en,
     input  wire [1:0] gain_sel,

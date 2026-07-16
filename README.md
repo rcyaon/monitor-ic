@@ -51,6 +51,3 @@ monitor_ic/
     ├── tb_window_detector.sch
     └── tb_top_level.sch
 ```
-
-## Mixed signal flow
-Note to self about how to interface Verilog with analog 

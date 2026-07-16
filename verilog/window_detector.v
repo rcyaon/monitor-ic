@@ -5,8 +5,6 @@
 `ifndef WINDOW_DETECTOR_V
 `define WINDOW_DETECTOR_V
 
-`include "monitor_misc.v"
-
 module window_detector (
     input  wire comp_low,     // 1 = above low threshold
     input  wire comp_high,    // 1 = below high threshold

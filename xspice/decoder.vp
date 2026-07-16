@@ -1,0 +1,75 @@
+/* Verilog module written by vlog2Verilog (qflow) */
+/* With explicit power connections */
+/* With case-insensitive names (SPICE-compatible) */
+
+module decoder(
+    inout VDD,
+    inout VSS,
+    input en,
+    input [1:0] gain_sel,
+    output s1_n,
+    output s2_n,
+    output s3_n,
+    output s4_n
+);
+
+wire s1_n ;
+wire _1_ ;
+wire en ;
+wire s3_n ;
+wire _0_ ;
+wire s2_n ;
+wire [1:0] gain_sel ;
+wire s4_n ;
+
+gf180mcu_fd_sc_mcu7t5v0__clkinv_1 _2_ (
+    .VSS(VSS),
+    .VDD(VDD),
+    .I(gain_sel[1]),
+    .ZN(_0_)
+);
+
+gf180mcu_fd_sc_mcu7t5v0__clkinv_1 _3_ (
+    .VSS(VSS),
+    .VDD(VDD),
+    .I(en),
+    .ZN(_1_)
+);
+
+gf180mcu_fd_sc_mcu7t5v0__nor3_1 _4_ (
+    .VSS(VSS),
+    .VDD(VDD),
+    .A1(gain_sel[0]),
+    .A2(gain_sel[1]),
+    .A3(_1_),
+    .ZN(s1_n)
+);
+
+gf180mcu_fd_sc_mcu7t5v0__and3_1 _5_ (
+    .VSS(VSS),
+    .VDD(VDD),
+    .A1(gain_sel[0]),
+    .A2(_0_),
+    .A3(en),
+    .Z(s2_n)
+);
+
+gf180mcu_fd_sc_mcu7t5v0__nor3_1 _6_ (
+    .VSS(VSS),
+    .VDD(VDD),
+    .A1(gain_sel[0]),
+    .A2(_0_),
+    .A3(_1_),
+    .ZN(s3_n)
+);
+
+gf180mcu_fd_sc_mcu7t5v0__and3_1 _7_ (
+    .VSS(VSS),
+    .VDD(VDD),
+    .A1(gain_sel[0]),
+    .A2(gain_sel[1]),
+    .A3(en),
+    .Z(s4_n)
+);
+
+endmodule

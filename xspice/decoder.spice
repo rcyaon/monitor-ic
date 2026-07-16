@@ -1,0 +1,16 @@
+*SPICE netlist created from verilog structural netlist module decoder by vlog2Spice (qflow)
+*This file may contain array delimiters, not for use in simulation.
+
+
+.subckt decoder VDD VSS en gain_sel[0] gain_sel[1] s1_n s2_n
++ s3_n s4_n 
+
+X_2_ VSS VDD gain_sel[1] _0_ gf180mcu_fd_sc_mcu7t5v0__clkinv_1
+X_3_ VSS VDD en _1_ gf180mcu_fd_sc_mcu7t5v0__clkinv_1
+X_4_ VSS VDD gain_sel[0] gain_sel[1] _1_ s1_n gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_5_ VSS VDD gain_sel[0] _0_ en s2_n gf180mcu_fd_sc_mcu7t5v0__and3_1
+X_6_ VSS VDD gain_sel[0] _0_ _1_ s3_n gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_7_ VSS VDD gain_sel[0] gain_sel[1] en s4_n gf180mcu_fd_sc_mcu7t5v0__and3_1
+
+.ends
+.end
