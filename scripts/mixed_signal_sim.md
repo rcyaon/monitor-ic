@@ -18,8 +18,7 @@ chmod +x scripts/synth.sh
 ./scripts/synth.sh decoder
 ```
 
-Confirm each .nl.v file contains real gate instantiations, not just dangling wires. If it comes out
-empty or black-boxed, the top module name passed to synth.sh doesn't match the module name inside the .v file, or the file wasn't picked up.
+Confirm each `.nl.v` file contains real gate instantiations, not just dangling wires. If it comes out empty or black-boxed, the top module name passed to synth.sh doesn't match the module name inside the `.v` file, or the file wasn't picked up.
 
 3. Running with qflow:
 ```
@@ -49,19 +48,15 @@ These are expected. `vlog2Spice` lacks transistor-level models for these cells, 
 python3 ../scripts/spi2xspice.py -vdd=3.3 /foss/pdks/ciel/gf180mcu/versions/8f2d1529c86235d726979eb9ecb7e9628108590b/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_3v30.lib decoder.spice decoder.xspice
 ```
 
-## Inside Xschem
+# Inside Xschem
 1. Check the port order in the `.xspice` file before building the symbol:
-```
-   grep -A2 "^.subckt" decoder.xspice
-```
-2. Build the Xschem symbols by `File → New Symbol`
-3. Check each `.xspice` file's port order 
 ```
 grep -A2 "^.subckt" decoder.xspice
 ```
-3. Place pins in the same exact order as the aforementioned `.subckt` line.  Example, for `window_detector.v`: `comp_low`, `comp_high`, `in_window alert_set`, `alert_reset`
+2. Build the Xschem symbols by `File → New Symbol`
+3. Place pins in the same exact order as the aforementioned `.subckt` line in step 1.  Example, for `window_detector.v`: `comp_low`, `comp_high`, `in_window alert_set`, `alert_reset`
 
-4. `Right-click → Properties` on the symbol placed in a schematic, or edit the `.sym` text directly:
+4. Set the symbol's simulation properties. `Right-click → Properties` on the symbol placed in a schematic, or edit the `.sym` text directly:
 ```
 value="XSPICE model here"
 spice_ignore=false
@@ -72,4 +67,3 @@ format="@name @pinlist @symname"
 include xspice/decoder.xspice
 ```
 then reference the subcircuit by name from the schematic.
-
