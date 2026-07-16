@@ -1,4 +1,4 @@
-# Preparing Verilog files for mixed signal simulation
+# Verilog file preparation for mixed-signal simulation
 All commands assume you're working inside the IIC-OSIC-TOOLS container (noVNC desktop). For sake of clarity, I'll be running this with `decoder.v` as an example. 
 
 > [!NOTE]
